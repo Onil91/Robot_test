@@ -23,9 +23,9 @@ Or<br />
 
 It is possible to only run selected parts of the test set<br />
 The avaiable tests are:
-- registration: `robot -i registration -v browser:Chrome selenium_test.robot`
-- search: `robot -i search -v browser:Chrome selenium_test.robot`
-- cart: `robot -i cart -v browser:Chrome selenium_test.robot`
-- purchase: `robot -i registration -i purchase -v browser:Chrome selenium_test.robot`
+- Registration: `robot -i registration -v browser:Chrome selenium_test.robot`
+- Seraching items: `robot -i search -v browser:Chrome selenium_test.robot`
+- Shopping cart: `robot -i cart -v browser:Chrome selenium_test.robot`
+- Purchasing: `robot -i registration -i purchase -v browser:Chrome selenium_test.robot`
 
 **All of the above command needs to be run from the rood directory of the repository**
