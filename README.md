@@ -11,15 +11,15 @@ This is a demo framework for running test cases in Firefox and Chrome
 - robotframework-seleniumlibrary
 - selenium
 - robotframework
-Or you can use the provided requirements.txt to install them
-Use `pip install -r requirements.txt` in command line from the root of the repository
+Or you can use the provided requirements.txt to install them.
+Use `pip install -r requirements.txt` in command line from the root of the repository.
 
 ## How to run it
 
 To run the whole test set either use the following command:
-`robot -v browser:Chrome selenium_test.robot` for Chrome
+-`robot -v browser:Chrome selenium_test.robot` for Chrome
 Or
-`robot -v browser:FF selenium_test.robot` For Firefox
+-`robot -v browser:FF selenium_test.robot` For Firefox
 
 It is possible to only run selected parts of the test set
 The avaiable tests are:
