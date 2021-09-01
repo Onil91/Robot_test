@@ -18,62 +18,75 @@ ${MY_ACCOUNT_VISIBLE}              xpath://span[@class='navigation_page']["My ac
 
 *** Keywords ***
 Click sign in
+    [Documentation]    Click sign in
     Wait Until Element Is Visible    ${SIGN_IN_BUTTON}    ${TIMEOUT}
     Click Element    ${SIGN_IN_BUTTON}
     
 Fill in random email address
+    [Documentation]    Fill in random email address
     ${ran int}    Generate random string    5    0123456789
     ${login_data}    Catenate    SEPARATOR=    test    ${ran int}    @test.com
     Wait Until Element Is Visible    ${EMAIL_FIELD}    ${TIMEOUT}
     Input Text    ${EMAIL_FIELD}    ${login_data}
 
 Click create an account
+    [Documentation]    Click create an account
     Wait Until Element Is Visible    ${Create_new_account_button}    ${TIMEOUT}
     Click Element    ${Create_new_account_button}
 
 Fill in first name
+    [Documentation]    Fill in first name
     [Arguments]  ${FIRST_NAME}
     Wait Until Element Is Visible    ${FIRST_NAME_FIELD}    ${TIMEOUT}
     Input Text    ${FIRST_NAME_FIELD}    ${FIRST_NAME}
 
 Fill in last name
+    [Documentation]    Fill in last name
     [Arguments]  ${LAST_NAME}
     Wait Until Element Is Visible    ${LAST_NAME_FIELD}    ${TIMEOUT}
     Input Text    ${LAST_NAME_FIELD}    ${LAST_NAME}
 
 Fill in password
+    [Documentation]    Fill in password
     [Arguments]  ${PASSWORD}
     Wait Until Element Is Visible    ${PASSWORD_FIELD}    ${TIMEOUT}
     Input Text    ${PASSWORD_FIELD}    ${PASSWORD}
 
 Fill in address
+    [Documentation]    Fill in address
     [Arguments]  ${ADDRESS}
     Wait Until Element Is Visible    ${ADDRESS_FIELD}     ${TIMEOUT}
     Input Text    ${ADDRESS_FIELD}    ${ADDRESS}
     
 Fill in city
+    [Documentation]    Fill in city
     [Arguments]  ${CITY}
     Wait Until Element Is Visible    ${CITY_FIELD}     ${TIMEOUT}
     Input Text    ${CITY_FIELD}    ${CITY}
 
 Fill in mobile
+    [Documentation]    Fill in mobile
     [Arguments]  ${MOBILE}
     Wait Until Element Is Visible    ${MOBILE_FIELD}     ${TIMEOUT}
     Input Text    ${MOBILE_FIELD}    ${MOBILE}
 
 Fill in zip code
+    [Documentation]    Fill in zip code
     [Arguments]  ${ZIP_CODE}
     Wait Until Element Is Visible    ${ZIP_CODE_FIELD}     ${TIMEOUT}
     Input Text    ${ZIP_CODE_FIELD}    ${ZIP_CODE}
 
 Fill in state
+    [Documentation]    Fill in state
     [Arguments]  ${STATE}
     Select From List By Value    ${STATE_FIELD}    ${STATE}
 
 Click register
+    [Documentation]    Click register
     Wait Until Element Is Visible    ${REGISTER_BUTTON}    ${TIMEOUT}
     Click Element    ${REGISTER_BUTTON}
 
 Validating successful registration
+    [Documentation]    Validating successful registration
     Wait Until Element Is Visible    ${LOGOUT_VISIBLE}    ${TIMEOUT}
     Element Should Be Visible    ${MY_ACCOUNT_VISIBLE}

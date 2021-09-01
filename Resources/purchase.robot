@@ -16,12 +16,14 @@ ${REFERENCE_NUMBER}                xpath://a[@class='color-myaccount']
 
 *** Keywords ***
 Add product to cart
+    [Documentation]    Add product to cart
     Wait Until Element Is Visible    ${LOCATE_PRODUCT}    ${TIMEOUT}
     Mouse Over    ${LOCATE_PRODUCT}
     Wait Until Element Is Visible    ${ADD_PRODUCT_TO_CART}    ${TIMEOUT}
     Click Element    ${ADD_PRODUCT_TO_CART}
 
 Click Proceed to checkout
+    [Documentation]    Click Proceed to checkout
     Wait Until Element Is Visible    ${PROCEED_TO_CHECKOUT_1}    ${TIMEOUT}
     Click Element    ${PROCEED_TO_CHECKOUT_1}
     Wait Until Element Is Visible    ${PROCEED_TO_CHECKOUT_2}    ${TIMEOUT}
@@ -33,14 +35,17 @@ Click Proceed to checkout
     Click Element    ${PROCEED_TO_CHECKOUT_4}
 
 Click bank wire
+    [Documentation]    Click bank wire
     Wait Until Element Is Visible    ${BANK_WIRE}    ${TIMEOUT}
     Click Element    ${BANK_WIRE}
 
 Click confirm my order
+    [Documentation]    Click confirm my order
     Wait Until Element Is Visible    ${CONFIRM_MY_ORDER}    ${TIMEOUT}
     Click Element    ${CONFIRM_MY_ORDER}
 
 Validating order confirmation
+    [Documentation]    Validating order confirmation
     Wait Until Element Is Visible    ${ORDER_INFO}    ${TIMEOUT}
     ${text_1}    Get Text    ${ORDER_INFO}
     ${PARSED_NUMBER}    Get Regexp Matches    ${text_1}    reference?\\s([A-Z]+)    1

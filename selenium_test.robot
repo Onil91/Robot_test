@@ -8,6 +8,7 @@ Suite Teardown    Close All Browsers
 
 *** Test Cases ***
 Successful registration
+    [Documentation]    Runs test case for registration
     [Tags]    registration
     Click sign in
     Fill in random email address
@@ -24,20 +25,24 @@ Successful registration
     Validating successful registration
 
 Searching for products
+    [Documentation]    Runs test case for searching on the website
     [Tags]    search
     Return to home Page
     Search for Product    Printed
     Validating search results
 
 Add products to cart
+    [Documentation]    Runs test case for adding to shopping cart
     [Tags]    cart
     Return to home Page
     Click popular
     Add multiple products to cart    2
     Validating shopping cart
+    Emptying cart
 
 
 Delete products from cart
+    [Documentation]    Runs test case for deleting from shopping cart
     [Tags]    cart
     Return to home Page
     Add multiple products to cart    2
@@ -48,6 +53,7 @@ Delete products from cart
     Emptying cart
 
 Purchase products with bank wire
+    [Documentation]    Runs test case for purchaseing
     [Tags]    purchase
     Return to home Page
     Add product to cart

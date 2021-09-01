@@ -1,5 +1,3 @@
-*** Settings ***
-Library    SeleniumLibrary
 *** Variables ***
 ${TIMEOUT}                         10
 ${SELECT_POPULAR}                  Class:homefeatured
@@ -13,17 +11,19 @@ ${SHOPPING_CART_BUTTON}            xpath://a[@href="http://automationpractice.co
 ${SHOPPING_CART_PAGE_COUNT}        xpath:/html/body/div[1]/div[2]/div/div[3]/div/div[2]/table/tbody/tr/td[5]/input[2]
 ${SHOPPING_CART_PAGE_NAME}         xpath:/html/body/div[1]/div[2]/div/div[3]/div/div[2]/table/tbody/tr/td[2]/p/a
 ${SHOPPING_CART_PAGE_PRICE}        xpath:/html/body/div[1]/div[2]/div/div[3]/div/div[2]/table/tbody/tr/td[4]/span/span
-${SHOPPING_CART_PAGE_TOTAL_PRICE}  xpath://*[@id="total_price"]
+${SHOPPING_CART_PAGE_TOTAL_PRICE}  xpath://*[@id="total_product"]
 ${DECREASE_ITEM}                   xpath://a[@class="cart_quantity_down btn btn-default button-minus"]
 ${EMPTYING_CART}                   xpath://a[@class="cart_quantity_delete"]
 ${CART_IS_EMPTY_WARNING}           xpath://span[@class='ajax_cart_no_product']
 
 *** Keywords ***
 Click popular
+    [Documentation]    Click popular
     Wait Until Element Is Visible    ${SELECT_POPULAR}    ${TIMEOUT}
     Click Element    ${SELECT_POPULAR}
 
 Add multiple products to cart
+    [Documentation]    Add multiple products to cart
     [Arguments]    ${ITEM_NUMBER_VAR}
     ${ITEM_NUMBER_VAR}    Evaluate    ${ITEM_NUMBER_VAR} + 1
     FOR    ${counter}    IN RANGE    1    ${ITEM_NUMBER_VAR}
@@ -39,6 +39,7 @@ Add multiple products to cart
     ${SHOPPING_CART_COUNT_VAR}    Set Variable    0
 
 Validating shopping cart
+    [Documentation]    Validating shopping cart
     Wait Until Element Is Visible    ${SHOPPING_CART_BUTTON}    ${TIMEOUT}
     ${ITEM_NAME_VAR}    Get Text    ${ITEM_NAME}
     ${ITEM_PRACE_VAR}    Get Text    ${ITEM_PRICE}
@@ -53,16 +54,19 @@ Validating shopping cart
     Should Be Equal    ${SHOPPING_CART_COUNT_VAR}    ${SHOPPING_CART_PAGE_COUNT_VAR}
 
 Shopping cart total price
+    [Documentation]    Shopping cart total price
     Wait Until Element Is Visible    ${SHOPPING_CART_PAGE_TOTAL_PRICE}    ${TIMEOUT}
     ${SHOPPING_CART_PAGE_TOTAL_PRICE_VAR_BEFORE}    Get Text    ${SHOPPING_CART_PAGE_TOTAL_PRICE}
     [Return]    ${SHOPPING_CART_PAGE_TOTAL_PRICE_VAR_BEFORE}
 
 Decrease item
+    [Documentation]    Decrease item
     Wait Until Element Is Visible    ${DECREASE_ITEM}    ${TIMEOUT}
     Click Element    ${DECREASE_ITEM}
-    Sleep    6
+    Sleep    5
 
 Shopping cart total price updated
+    [Documentation]    Shopping cart total price updated
     [Arguments]    ${temp}
     ${SHOPPING_CART_PAGE_TOTAL_PRICE_VAR_BEFORE}    Remove String    ${temp}    $
     Wait Until Element Is Visible   ${SHOPPING_CART_PAGE_TOTAL_PRICE}      ${TIMEOUT}
@@ -74,6 +78,7 @@ Shopping cart total price updated
     Should Be Equal As Numbers    ${SHOPPING_CART_PAGE_PRICE_VAR}    ${PRICE_DIFF}
 
 Emptying cart
+    [Documentation]    Emptying cart
     Wait Until Element Is Visible   ${EMPTYING_CART}    ${TIMEOUT}
     Click Element    ${EMPTYING_CART}
     Wait Until Element Is Visible    ${CART_IS_EMPTY_WARNING}    ${TIMEOUT}
